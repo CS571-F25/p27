@@ -1,0 +1,231 @@
+/* Navbar Toggle Button (Mobile Only) */
+.navbar-toggle {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1001;
+  background: var(--color-primary);
+  color: var(--color-text-primary);
+  border: 2px solid var(--color-border-primary);
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.navbar-toggle:hover {
+  background: var(--color-primary-hover);
+  transform: scale(1.05);
+}
+
+/* Mobile Overlay */
+.navbar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  backdrop-filter: blur(2px);
+}
+
+/* Vertical Sidebar Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  max-width: 250px;
+  min-width: 250px;
+  height: 100vh;
+  max-height: 100vh;
+  background-color: var(--color-background-secondary);
+  border-right: 2px solid var(--color-border-primary);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+  z-index: 10;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.navbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.navbar::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+.navbar::-webkit-scrollbar-thumb {
+  background: var(--color-border-default);
+  border-radius: 3px;
+}
+
+.navbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-primary);
+}
+
+.navbar-brand {
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--color-card-border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-logo-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.navbar-logo {
+  color: var(--color-primary);
+  filter: drop-shadow(0 0 10px rgba(230, 57, 70, 0.4));
+  transition: all 0.3s ease;
+}
+
+.navbar-logo-link:hover .navbar-logo {
+  filter: drop-shadow(0 0 15px rgba(230, 57, 70, 0.6));
+  transform: scale(1.1);
+}
+
+.navbar-brand-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-primary);
+  transition: all 0.3s ease;
+}
+
+.navbar-logo-link:hover .navbar-brand-text {
+  color: var(--color-primary-hover);
+}
+
+.navbar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: auto;
+}
+
+.navbar-nav li {
+  margin: 0;
+  padding: 0 1rem;
+}
+
+.navbar-nav a {
+  display: block;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  position: relative;
+}
+
+.navbar-nav a:hover {
+  color: var(--color-primary);
+  background-color: rgba(230, 57, 70, 0.15);
+  border-color: var(--color-border-primary);
+  transform: translateX(5px);
+}
+
+.navbar-nav a.active {
+  color: var(--color-primary);
+  background-color: rgba(230, 57, 70, 0.2);
+  border-color: var(--color-border-primary);
+  font-weight: 700;
+}
+
+.navbar-nav a.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  background: var(--color-primary);
+  border-radius: 0 4px 4px 0;
+}
+
+.navbar-footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--color-card-border);
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-overlay {
+    display: block;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .navbar.navbar-open {
+    transform: translateX(0);
+  }
+
+  .navbar-nav a {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    width: 220px;
+  }
+
+  .navbar-brand {
+    padding: 0 1rem 1.5rem 1rem;
+  }
+
+  .navbar-brand a {
+    font-size: 1.1rem;
+  }
+
+  .navbar-nav {
+    padding: 0 0.5rem;
+  }
+
+  .navbar-nav li {
+    padding: 0;
+  }
+}

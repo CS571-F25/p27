@@ -1,23 +1,32 @@
-import { useState } from 'react'
-import './App.css'
-import { CgGym } from "react-icons/cg";
+import { HashRouter, Route, Routes } from "react-router";
+import { ThemeProvider } from "./contexts/ThemeContext";
+import HomePage from "./pages/HomePage"
+import Navbar from "./components/Navbar"
+import Workouts from "./pages/Workouts"
+import Profile from "./pages/Profile"
+import About from "./pages/About"
+import NoMatch from "./pages/NoMatch"
+import "./App.css"
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <CgGym size="10em" color='blue'/>
-      </div>
-      <h1>A Personal Training App</h1>
-      <div className="card">
-        <button className="homepage-button" onClick={() => setCount((count) => count + 1)} style={{ background: "red", color: "white" }}>
-          Reps are {count}
-        </button>
-      </div>
-    </>
-  )
+    return (
+        <ThemeProvider>
+            <HashRouter>
+                <>
+                    <Navbar />
+                    <div className="main-content">
+                        <Routes>
+                            <Route path="/" element={<HomePage />} />
+                            <Route path="/workouts" element={<Workouts />} />
+                            <Route path="/profile" element={<Profile />} />
+                            <Route path="/about" element={<About />} />
+                            <Route path="*" element={<NoMatch />} />
+                        </Routes>
+                    </div>
+                </>
+            </HashRouter>
+        </ThemeProvider>
+    )
 }
 
-export default App
+export default App;
