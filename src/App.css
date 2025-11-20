@@ -210,13 +210,85 @@
   font-weight: 300;
 }
 
-.page-card {
-  background: var(--color-card-background);
-  border: 1px solid var(--color-card-border);
+.card,
+.card.bg-white,
+.card[class*="bg-"] {
+  background-color: var(--color-card-background) !important;
+  border-color: var(--color-card-border) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.card-header,
+.card-header.bg-white,
+.card-header[class*="bg-"] {
+  background-color: var(--color-background-secondary) !important;
+  border-color: var(--color-card-border) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.card-body,
+.card-body.bg-white,
+.card-body[class*="bg-"] {
+  background-color: var(--color-card-background) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.card-title,
+.card-title.text-dark,
+.card-title[class*="text-"] {
+  color: var(--color-text-primary) !important;
+}
+
+.list-group-item {
+  background-color: var(--color-card-background);
+  border-color: var(--color-card-border);
+  color: var(--color-text-primary);
+}
+
+.list-group-item:hover {
+  background-color: var(--color-background-secondary);
+}
+
+.table {
+  color: var(--color-text-primary);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > td {
+  background-color: var(--color-background-secondary);
+}
+
+.table-hover > tbody > tr:hover > td {
+  background-color: var(--color-background-tertiary);
+}
+
+.table thead th {
+  border-color: var(--color-card-border);
+  color: var(--color-text-primary);
+}
+
+.table td {
+  border-color: var(--color-card-border);
+}
+
+.alert {
+  background-color: var(--color-background-secondary);
+  border-color: var(--color-card-border);
+  color: var(--color-text-primary);
+}
+
+.alert-heading {
+  color: var(--color-text-primary);
+}
+
+.page-card,
+.page-card.card {
+  background: var(--color-card-background) !important;
+  border: 1px solid var(--color-card-border) !important;
   border-radius: 12px;
   padding: 2.5rem;
   margin: 2rem 0;
   transition: all 0.3s ease;
+  color: var(--color-text-primary) !important;
 }
 
 .page-card:hover {
@@ -226,7 +298,7 @@
 }
 
 .page-content {
-  color: var(--color-text-primary) !important;
+  color: var(--color-text-primary);
   line-height: 1.8;
   font-size: 1.1rem;
 }
@@ -350,12 +422,14 @@
   gap: 1.5rem;
 }
 
-.workout-card {
-  background: var(--color-card-background);
-  border: 1px solid var(--color-card-border);
+.workout-card,
+.workout-card.card {
+  background: var(--color-card-background) !important;
+  border: 1px solid var(--color-card-border) !important;
   border-radius: 12px;
   padding: 1.5rem;
   transition: all 0.3s ease;
+  color: var(--color-text-primary) !important;
 }
 
 .workout-card:hover {
@@ -414,7 +488,27 @@
 }
 
 .workout-card-body {
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
+  background-color: var(--color-card-background);
+}
+
+.workout-card .card-header {
+  background-color: var(--color-background-secondary) !important;
+  border-color: var(--color-card-border) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.workout-card .card-body {
+  background-color: var(--color-card-background) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.workout-card .card-title {
+  color: var(--color-text-primary) !important;
+}
+
+.workout-card strong {
+  color: var(--color-text-primary);
 }
 
 .workout-info {
@@ -480,18 +574,31 @@
   gap: 1.5rem;
 }
 
-.food-plan-card {
-  background: var(--color-card-background);
-  border: 1px solid var(--color-card-border);
+.food-plan-card,
+.food-plan-card.card {
+  background: var(--color-card-background) !important;
+  border: 1px solid var(--color-card-border) !important;
   border-radius: 12px;
   padding: 1.5rem;
   transition: all 0.3s ease;
+  color: var(--color-text-primary) !important;
 }
 
 .food-plan-card:hover {
   border-color: var(--color-border-accent);
   transform: translateY(-5px);
   box-shadow: 0 8px 24px rgba(247, 127, 0, 0.2);
+}
+
+.food-plan-card .card-header {
+  background-color: var(--color-background-secondary) !important;
+  border-color: var(--color-card-border) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.food-plan-card .card-body {
+  background-color: var(--color-card-background) !important;
+  color: var(--color-text-primary) !important;
 }
 
 .food-plan-header {
@@ -521,6 +628,15 @@
 }
 
 .food-plan-body {
+  color: var(--color-text-primary);
+  background-color: var(--color-card-background);
+}
+
+.food-plan-body strong {
+  color: var(--color-text-primary);
+}
+
+.food-plan-body span {
   color: var(--color-text-secondary);
 }
 
