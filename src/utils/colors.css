@@ -1,5 +1,4 @@
 :root {
-  /* Gym/Training Theme Colors - Shared */
   --color-primary: #e63946;
   --color-primary-hover: #d62839;
   --color-primary-light: #f77f7f;
@@ -8,7 +7,6 @@
   --color-accent-silver: #adb5bd;
 }
 
-/* Dark Theme (Default) */
 :root[data-theme='dark'],
 :root:not([data-theme]) {
   --color-background: #0d1117;
@@ -25,7 +23,6 @@
   --color-card-border: #30363d;
 }
 
-/* Light Theme */
 :root[data-theme='light'] {
   --color-background: #ffffff;
   --color-background-secondary: #f8f9fa;

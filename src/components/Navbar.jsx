@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router";
+import { Button } from "react-bootstrap";
 import "./Navbar.css";
 import ThemeToggle from "./ThemeToggle";
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -8,9 +9,7 @@ import { CgGym } from "react-icons/cg";
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
-    
-    // Get the current pathname (works with HashRouter)
-    // HashRouter stores the path in location.pathname, not location.hash
+
     const currentPath = location.pathname;
 
     const toggleMenu = () => {
@@ -27,9 +26,14 @@ function Navbar() {
             {isOpen && <div className="navbar-overlay" onClick={closeMenu} />}
             
             {/* Hamburger Button (Mobile Only) */}
-            <button className="navbar-toggle" onClick={toggleMenu} aria-label="Toggle menu">
+            <Button 
+                variant="outline-secondary" 
+                className="navbar-toggle" 
+                onClick={toggleMenu} 
+                aria-label="Toggle menu"
+            >
                 {isOpen ? <FaTimes /> : <FaBars />}
-            </button>
+            </Button>
 
             <nav className={`navbar ${isOpen ? 'navbar-open' : ''}`}>
                 <div className="navbar-brand">

@@ -1,6 +1,5 @@
-/* Navbar Toggle Button (Mobile Only) */
 .navbar-toggle {
-  display: none;
+  display: none !important;
   position: fixed;
   top: 1rem;
   left: 1rem;
@@ -13,6 +12,12 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1.2rem;
+}
+
+@media (min-width: 769px) {
+  .navbar-toggle {
+    display: none !important;
+  }
 }
 
 .navbar-toggle:hover {
