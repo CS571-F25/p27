@@ -24,13 +24,13 @@
     /* Path aliases */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@/components/*": ["./src/components/*"],
-      "@/pages/*": ["./src/pages/*"],
-      "@/utils/*": ["./src/utils/*"]
+      "@/*": ["frontend/src/*"],
+      "@/components/*": ["frontend/src/components/*"],
+      "@/pages/*": ["frontend/src/pages/*"],
+      "@/utils/*": ["frontend/src/utils/*"]
     }
   },
-  "include": ["src"],
+  "include": ["frontend/src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
 

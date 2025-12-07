@@ -1,0 +1,222 @@
+.ai-home-hero-section {
+  margin-bottom: 3rem;
+}
+
+.ai-home-hero-left {
+  color: var(--color-text-primary);
+}
+
+.ai-home-hero-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border-default);
+  color: var(--color-text-secondary);
+  background-color: var(--color-card-background);
+}
+
+.ai-home-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-primary);
+}
+
+.ai-home-subtitle {
+  font-size: 0.98rem;
+  color: var(--color-text-secondary);
+  max-width: 32rem;
+  line-height: 1.6;
+}
+
+.ai-home-pill-row {
+  gap: 0.5rem;
+}
+
+.ai-home-pill {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border-default);
+  color: var(--color-text-secondary);
+  background-color: var(--color-card-background);
+}
+
+.ai-home-cta-row {
+  gap: 0.75rem;
+}
+
+.ai-home-btn-primary {
+  border-radius: 999px;
+  padding: 0.75rem 1.6rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  color: var(--color-on-primary);
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-green),
+    var(--color-accent-green-700)
+  );
+}
+
+.ai-home-btn-primary:hover {
+  filter: brightness(1.05);
+}
+
+.ai-home-btn-secondary {
+  border-radius: 999px;
+  padding: 0.75rem 1.6rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: 1px solid var(--color-border-default);
+  color: var(--color-text-secondary);
+  background: var(--color-card-background);
+}
+
+.ai-home-preview-card {
+  background: var(--color-preview-gradient);
+  border-radius: 1rem;
+  padding: 1.5rem 1.4rem;
+  border: 1px solid var(--color-card-border);
+  color: var(--color-text-primary);
+}
+
+.ai-home-step-dots {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.ai-home-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: var(--color-border-default);
+}
+
+.ai-home-dot-active {
+  background: var(--color-accent-green);
+}
+
+.ai-home-step-text {
+  font-size: 0.72rem;
+  color: var(--color-text-tertiary);
+}
+
+.ai-home-preview-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.ai-home-preview-text {
+  font-size: 0.86rem;
+  color: var(--color-text-tertiary);
+}
+
+.ai-home-mini-option {
+  border-radius: 999px;
+  border: 1px solid var(--color-border-default);
+  background: transparent;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+.ai-home-mini-option-active {
+  border-color: var(--color-accent-green-700);
+  background: rgba(22, 163, 74, 0.16);
+  color: var(--color-accent-green-soft);
+}
+
+.ai-home-preview-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-text-tertiary);
+}
+
+.ai-home-preview-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.3rem;
+}
+
+.ai-home-preview-icon {
+  color: var(--color-accent-green);
+  flex-shrink: 0;
+}
+
+.ai-home-section {
+  margin-top: 2.5rem;
+}
+
+.ai-home-how-section {
+  margin-top: 2.5rem;
+}
+
+.ai-home-how-card {
+  background: var(--color-card-background);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid var(--color-card-border);
+  transition: all 0.2s ease;
+}
+
+.ai-home-how-card:hover {
+  border-color: var(--color-border-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.ai-home-how-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.ai-home-how-card p {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.ai-home-how-step {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.6rem;
+  color: var(--color-accent-green);
+}
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.section-icon {
+  color: var(--color-accent-orange);
+}
+
+@media (max-width: 991.98px) {
+  .ai-home-title {
+    font-size: 2.1rem;
+  }
+
+  .ai-home-hero-section {
+    margin-bottom: 2rem;
+  }
+
+  .ai-home-preview-card {
+    margin-top: 1.5rem;
+  }
+}
