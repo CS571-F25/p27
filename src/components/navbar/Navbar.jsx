@@ -1,16 +1,15 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router";
+import { Button } from "react-bootstrap";
 import "./Navbar.css";
-import ThemeToggle from "./ThemeToggle";
+import ThemeToggle from "../theme/ThemeToggle";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { CgGym } from "react-icons/cg";
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
-    
-    // Get the current pathname (works with HashRouter)
-    // HashRouter stores the path in location.pathname, not location.hash
+
     const currentPath = location.pathname;
 
     const toggleMenu = () => {
@@ -23,34 +22,36 @@ function Navbar() {
 
     return (
         <>
-            {/* Mobile Menu Overlay */}
             {isOpen && <div className="navbar-overlay" onClick={closeMenu} />}
-            
-            {/* Hamburger Button (Mobile Only) */}
-            <button className="navbar-toggle" onClick={toggleMenu} aria-label="Toggle menu">
+
+            <Button
+                variant="outline-secondary"
+                className="navbar-toggle"
+                onClick={toggleMenu}
+                aria-label="Toggle menu"
+            >
                 {isOpen ? <FaTimes /> : <FaBars />}
-            </button>
+            </Button>
 
             <nav className={`navbar ${isOpen ? 'navbar-open' : ''}`}>
                 <div className="navbar-brand">
                     <Link to="/" onClick={closeMenu} className="navbar-logo-link">
-                        <CgGym size="2.5em" className="navbar-logo" />
-                        <span className="navbar-brand-text">Training</span>
+                        <CgGym size="3em" className="navbar-logo" />
                     </Link>
                 </div>
                 <ul className="navbar-nav">
                     <li>
-                        <Link 
-                            to="/" 
-                            onClick={closeMenu} 
+                        <Link
+                            to="/"
+                            onClick={closeMenu}
                             className={currentPath === '/' || currentPath === '' ? 'active' : ''}
                         >
                             Home
                         </Link>
                     </li>
                     <li>
-                        <Link 
-                            to="/workouts" 
+                        <Link
+                            to="/workouts"
                             onClick={closeMenu}
                             className={currentPath === '/workouts' ? 'active' : ''}
                         >
@@ -58,8 +59,8 @@ function Navbar() {
                         </Link>
                     </li>
                     <li>
-                        <Link 
-                            to="/profile" 
+                        <Link
+                            to="/profile"
                             onClick={closeMenu}
                             className={currentPath === '/profile' ? 'active' : ''}
                         >
@@ -67,8 +68,8 @@ function Navbar() {
                         </Link>
                     </li>
                     <li>
-                        <Link 
-                            to="/about" 
+                        <Link
+                            to="/about"
                             onClick={closeMenu}
                             className={currentPath === '/about' ? 'active' : ''}
                         >

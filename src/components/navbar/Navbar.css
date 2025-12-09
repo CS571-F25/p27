@@ -1,0 +1,192 @@
+.navbar-toggle {
+  display: none !important;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1001;
+  background: var(--color-card-background);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-default);
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+@media (min-width: 769px) {
+  .navbar-toggle {
+    display: none !important;
+  }
+}
+
+.navbar-toggle:hover {
+  background: var(--color-background-tertiary);
+  transform: translateY(-1px);
+}
+
+.navbar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  backdrop-filter: blur(4px);
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  /* Slightly wider for breathing room */
+  max-width: 260px;
+  min-width: 260px;
+  height: 100vh;
+  max-height: 100vh;
+  background-color: var(--color-card-background);
+  /* Solid, clean background */
+  border-right: 1px solid var(--color-border-default);
+  /* Clean border > shadow */
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 0;
+  /* More vertical padding */
+  z-index: 10;
+  box-sizing: border-box;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Hide scrollbar for cleaner look */
+.navbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.navbar::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+.navbar:hover::-webkit-scrollbar-thumb {
+  background: var(--color-border-default);
+}
+
+.navbar-brand {
+  padding: 0 2rem;
+  margin-bottom: 3rem;
+  /* More space below logo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-logo-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.navbar-logo {
+  color: var(--color-primary);
+  filter: none;
+  /* Removed heavy drop shadow */
+  transition: transform 0.2s ease;
+}
+
+.navbar-logo-link:hover .navbar-logo {
+  transform: scale(1.05);
+  /* Subtle scale */
+}
+
+/* Nav Items */
+.navbar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0 1.5rem;
+  /* Indent content */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  /* Relaxed spacing */
+  overflow-y: auto;
+}
+
+.navbar-nav li {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-nav a {
+  display: flex;
+  /* Better alignment */
+  align-items: center;
+  color: var(--color-text-secondary);
+  /* Start with secondary color */
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  /* Slightly larger, clearer text */
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  position: relative;
+}
+
+.navbar-nav a:hover {
+  color: var(--color-primary);
+  background-color: var(--color-background-tertiary);
+  /* Subtle fill */
+  transform: translateX(2px);
+}
+
+.navbar-nav a.active {
+  color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  /* Or very light tint */
+  background: rgba(37, 99, 235, 0.08);
+  /* Transparent primary tint */
+  font-weight: 600;
+}
+
+.navbar-nav a.active::before {
+  /* Removed the heavy bar, using bg tint instead */
+  display: none;
+}
+
+.navbar-footer {
+  padding: 2rem 1.5rem;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-overlay {
+    display: block;
+  }
+
+  .navbar {
+    transform: translateX(-100%);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
+    /* Softer shadow for mobile drawer */
+  }
+
+  .navbar.navbar-open {
+    transform: translateX(0);
+  }
+}
