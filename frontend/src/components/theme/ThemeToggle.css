@@ -1,0 +1,31 @@
+/* Theme Toggle Group Styles */
+.theme-toggle-group .btn {
+  padding: 0.35rem 0.65rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-color: var(--color-border-default) !important;
+}
+
+.theme-toggle-group .btn svg {
+  width: 1em;
+  height: 1em;
+}
+
+.theme-toggle-group .btn.active,
+.theme-toggle-group .btn:active,
+.theme-toggle-group .btn-primary {
+  background-color: var(--color-primary) !important;
+  color: var(--color-on-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.theme-toggle-group .btn-outline-secondary {
+  color: var(--color-text-secondary) !important;
+  background-color: transparent !important;
+}
+
+.theme-toggle-group .btn-outline-secondary:hover {
+  background-color: var(--color-background-tertiary) !important;
+  color: var(--color-text-primary) !important;
+}

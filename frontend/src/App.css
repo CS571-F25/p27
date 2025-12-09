@@ -1,0 +1,286 @@
+.homepage-hero {
+  padding: var(--spacing-2xl) var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.homepage-icon {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.homepage-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+.homepage-subtitle {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xl);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.rep-counter-section {
+  background: var(--color-card-background);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xl);
+  margin: var(--spacing-xl) auto;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.rep-counter-display {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: var(--spacing-md) 0;
+}
+
+.rep-counter-label {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.homepage-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-2xl);
+  padding: 0 var(--spacing-xl);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feature-title {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.feature-description {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.page-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+  min-height: calc(100vh - 4rem);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.section-title {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.workout-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-card-background) !important;
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.workout-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-border-primary);
+}
+
+.workout-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--color-background-tertiary);
+  border-bottom: 1px solid var(--color-card-border);
+}
+
+.workout-card-header h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.workout-card-body {
+  padding: var(--spacing-lg);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.workout-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--color-text-primary);
+  /* Fixed: Was forcing primary color sometimes */
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.workout-info svg {
+  color: var(--color-primary);
+}
+
+.workout-difficulty {
+  margin-top: var(--spacing-xs);
+}
+
+.workout-exercises {
+  margin-top: auto;
+  margin-bottom: var(--spacing-lg);
+}
+
+.workout-exercises strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.workout-exercises ul {
+  padding-left: var(--spacing-lg);
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Food Plan Card */
+.food-plan-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-card-background) !important;
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.food-plan-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-border-primary);
+}
+
+.food-plan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--color-background-tertiary);
+  border-bottom: 1px solid var(--color-card-border);
+}
+
+.food-plan-header h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.food-plan-body {
+  padding: var(--spacing-lg);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.food-plan-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.food-plan-info>div {
+  text-align: center;
+  padding: var(--spacing-sm);
+  background: var(--color-background);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-default);
+}
+
+.food-plan-info strong {
+  display: block;
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.food-plan-info span {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-accent-bg: transparent;
+  --bs-table-striped-color: var(--color-text-primary);
+  --bs-table-striped-bg: var(--color-background-tertiary);
+  --bs-table-active-color: var(--color-text-primary);
+  --bs-table-active-bg: var(--color-background-tertiary);
+  --bs-table-hover-color: var(--color-text-primary);
+  --bs-table-hover-bg: var(--color-background-tertiary);
+
+  color: var(--color-text-primary) !important;
+  border-color: var(--color-border-default) !important;
+}
+
+.table> :not(caption)>*>* {
+  background-color: transparent !important;
+  color: var(--color-text-primary) !important;
+  border-color: var(--color-border-default) !important;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+  background-color: var(--color-background-tertiary) !important;
+  color: var(--color-text-primary) !important;
+  box-shadow: none !important;
+}
+
+.list-group-item {
+  background-color: transparent !important;
+  border-color: var(--color-border-default) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.list-group-item .text-muted {
+  color: var(--color-text-secondary) !important;
+}
+
+.list-group-item .badge {
+  font-weight: 600;
+}
