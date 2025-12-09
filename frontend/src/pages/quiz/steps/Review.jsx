@@ -1,4 +1,4 @@
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Card } from 'react-bootstrap';
 import { CgGym } from 'react-icons/cg';
 import { useState } from 'react';
 
@@ -49,121 +49,112 @@ function ReviewStep({ answers, stepIndex, totalSteps, onBack }) {
 
   return (
     <Row className="justify-content-center">
-      <Col lg={9}>
-        <div className="quiz-card">
-          <div className="d-flex justify-content-between align-items-center mb-3">
-            <div className="d-flex align-items-center gap-2 quiz-label">
-              <CgGym size="1.6rem" />
-              <span>Step {stepIndex + 1} of {totalSteps} · Review</span>
-            </div>
-            <div className="quiz-step-dots">
-              <span className="quiz-dot quiz-dot-active" />
-              <span className="quiz-dot quiz-dot-active" />
-              <span className="quiz-dot quiz-dot-active" />
-              <span className="quiz-dot quiz-dot-active" />
-              <span className="quiz-dot quiz-dot-active" />
-            </div>
-          </div>
-
-          <h1 className="quiz-title">Review your choices</h1>
-          <p className="quiz-subtitle">
-            Confirm your preferences before generating your plan.
-          </p>
-
-          <div className="quiz-review-grid mt-3">
-            <div className="quiz-review-card">
-              <div className="quiz-review-label">Goal</div>
-              <div className="quiz-review-value">{answers.goal || '-'}</div>
-            </div>
-            <div className="quiz-review-card">
-              <div className="quiz-review-label">Experience</div>
-              <div className="quiz-review-value">{answers.experience || '-'}</div>
-            </div>
-            <div className="quiz-review-card">
-              <div className="quiz-review-label">Equipment</div>
-              <div className="quiz-review-value">
-                {answers.equipment && answers.equipment.length
-                  ? answers.equipment.join(', ')
-                  : '-'}
+      <Col lg={10} xl={8}>
+        <Card className="border-0 shadow-sm" style={{ background: 'var(--color-card-background)', borderRadius: '1.25rem', minHeight: '650px' }}>
+          <Card.Body className="p-4 p-md-5">
+            <div className="d-flex justify-content-between align-items-center mb-4">
+              <div className="d-flex align-items-center gap-2" style={{ color: 'var(--color-text-tertiary)', fontSize: '0.9rem' }}>
+                <CgGym size="1.6rem" />
+                <span>Step {stepIndex + 1} of {totalSteps} · Review</span>
+              </div>
+              <div className="d-flex gap-1">
+                {[...Array(totalSteps)].map((_, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      width: '8px', height: '8px', borderRadius: '50%',
+                      background: i <= stepIndex ? 'var(--color-primary)' : 'var(--color-border-default)'
+                    }}
+                  />
+                ))}
               </div>
             </div>
-            <div className="quiz-review-card">
-              <div className="quiz-review-label">Schedule</div>
-              <div className="quiz-review-value">
-                {answers.daysPerWeek} days · {answers.sessionLength} min
-              </div>
-            </div>
-            <div className="quiz-review-card quiz-review-card-full">
-              <div className="quiz-review-label">Body focus</div>
-              <div className="quiz-review-tags">
-                {answers.focusMuscles && answers.focusMuscles.length ? (
-                  answers.focusMuscles.map((m) => (
-                    <span key={m} className="quiz-body-tag">
-                      {m}
-                    </span>
-                  ))
-                ) : (
-                  <span className="quiz-body-tag quiz-body-tag-empty">
-                    No muscles selected
-                  </span>
-                )}
-              </div>
-            </div>
-          </div>
 
-          {isLoading && (
-            <div className="quiz-loading mt-3">
-              <div className="quiz-loading-bar">
-                <div className="quiz-loading-bar-fill" />
+            <h1 className="mb-2 fw-bold" style={{ color: 'var(--color-text-primary)' }}>Review your choices</h1>
+            <p className="mb-4" style={{ color: 'var(--color-text-secondary)', maxWidth: '600px' }}>
+              Confirm your preferences before generating your plan.
+            </p>
+
+            <Row className="g-3">
+              {[
+                { label: 'Goal', value: answers.goal || '-' },
+                { label: 'Experience', value: answers.experience || '-' },
+                { label: 'Equipment', value: answers.equipment?.length ? answers.equipment.join(', ') : '-' },
+                { label: 'Schedule', value: `${answers.daysPerWeek} days · ${answers.sessionLength} min` }
+              ].map((item, idx) => (
+                <Col xs={12} md={6} key={idx}>
+                  <div className="p-3 rounded-4" style={{ background: 'var(--color-background-tertiary)' }}>
+                    <div className="text-uppercase mb-1" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'var(--color-text-secondary)' }}>{item.label}</div>
+                    <div className="fw-semibold" style={{ color: 'var(--color-text-primary)' }}>{item.value}</div>
+                  </div>
+                </Col>
+              ))}
+
+              <Col xs={12}>
+                <div className="p-3 rounded-4" style={{ background: 'var(--color-background-tertiary)' }}>
+                  <div className="text-uppercase mb-2" style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'var(--color-text-secondary)' }}>Body Focus</div>
+                  <div className="d-flex flex-wrap gap-2">
+                    {answers.focusMuscles && answers.focusMuscles.length ? (
+                      answers.focusMuscles.map((m) => (
+                        <span key={m} className="px-2 py-1 rounded-pill bg-white border" style={{ fontSize: '0.85rem' }}>{m}</span>
+                      ))
+                    ) : (
+                      <span className="text-muted fst-italic">No muscles selected</span>
+                    )}
+                  </div>
+                </div>
+              </Col>
+            </Row>
+
+            {isLoading && (
+              <div className="mt-4 p-4 rounded-4 text-center" style={{ background: 'var(--color-background-tertiary)' }}>
+                <div className="spinner-border text-primary mb-3" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+                <h5 className="mb-2" style={{ color: 'var(--color-text-primary)' }}>Generating your plan...</h5>
+                <p className="small mb-0 text-muted">Analyzing goal · Matching equipment · Building sessions</p>
               </div>
-              <div className="quiz-loading-text">Generating your plan...</div>
-              <ul className="quiz-loading-steps">
-                <li>Analyzing your goal</li>
-                <li>Matching experience and equipment</li>
-                <li>Building weekly split and sessions</li>
-              </ul>
-            </div>
-          )}
+            )}
 
-          {error && (
-            <div className="quiz-plan-banner quiz-plan-error mt-3">
-              {error}
-            </div>
-          )}
+            {error && (
+              <div className="alert alert-danger mt-4 rounded-4 border-0">
+                {error}
+              </div>
+            )}
 
-          {planText && !isLoading && (
-            <div className="quiz-plan-banner mt-3">
-              <div className="quiz-plan-title">Your generated plan</div>
-              <div className="quiz-plan-content">
-                {planText
-                  .split('\n')
-                  .filter((line) => line.trim().length > 0)
-                  .map((line, idx) => (
-                    <p key={idx}>{line}</p>
+            {planText && !isLoading && (
+              <div className="mt-4 p-4 rounded-4" style={{ background: 'var(--color-background-tertiary)' }}>
+                <h5 className="mb-3" style={{ color: 'var(--color-text-primary)' }}>Your generated plan</h5>
+                <div style={{ maxHeight: '400px', overflowY: 'auto' }}>
+                  {planText.split('\n').filter(l => l.trim()).map((line, idx) => (
+                    <p key={idx} className="mb-1" style={{ fontSize: '0.95rem', color: 'var(--color-text-secondary)' }}>{line}</p>
                   ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          <div className="d-flex justify-content-between mt-4">
-            <button
-              type="button"
-              className="btn quiz-btn-back"
-              onClick={onBack}
-              disabled={isLoading}
-            >
-              Back
-            </button>
-            <button
-              type="button"
-              className="btn quiz-btn-next"
-              onClick={handleGenerate}
-              disabled={isLoading}
-            >
-              {isLoading ? 'Generating...' : 'Generate plan'}
-            </button>
-          </div>
-        </div>
+            <div className="d-flex justify-content-between mt-5">
+              <button
+                type="button"
+                className="btn btn-outline-secondary rounded-pill px-4"
+                onClick={onBack}
+                disabled={isLoading}
+                style={{ borderColor: 'var(--color-border-default)', color: 'var(--color-text-primary)' }}
+              >
+                Back
+              </button>
+              <button
+                type="button"
+                className="btn btn-primary rounded-pill px-4 py-2 fw-bold"
+                onClick={handleGenerate}
+                disabled={isLoading}
+                style={{ background: 'var(--color-primary)', border: 'none' }}
+              >
+                {isLoading ? 'Generating...' : 'Generate plan'}
+              </button>
+            </div>
+          </Card.Body>
+        </Card>
       </Col>
     </Row>
   );

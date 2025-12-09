@@ -4,10 +4,6 @@ import { Container, Card, Row, Col } from 'react-bootstrap';
 function About() {
     return (
         <Container className="page-container">
-            <div className="page-header">
-                <h1 className="page-title">About</h1>
-                <p className="page-subtitle">Learn more about our personal training platform</p>
-            </div>
             <Card className="page-card mb-5 text-center border-0" style={{ background: 'var(--color-card-background)', padding: '3rem' }}>
                 <Card.Body>
                     <h1 className="display-5 fw-bold mb-3" style={{ color: 'var(--color-primary)' }}>Empowering Your Fitness Journey</h1>

@@ -1,6 +1,7 @@
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Card } from 'react-bootstrap';
 import { CgGym } from 'react-icons/cg';
 import { useState, useEffect } from 'react';
+import QuizOptionCard from '../../../components/ui/cards/QuizOptionCard';
 
 const goals = ['Build Muscle', 'Lose Fat', 'Get Stronger', 'Improve Mobility'];
 
@@ -23,51 +24,58 @@ function GoalStep({ value, stepIndex, totalSteps, onChange, onNext }) {
 
   return (
     <Row className="justify-content-center">
-      <Col lg={8}>
-        <div className="quiz-card">
-          <div className="d-flex justify-content-between align-items-center mb-3">
-            <div className="d-flex align-items-center gap-2 quiz-label">
-              <CgGym size="1.6rem" />
-              <span>Step {stepIndex + 1} of {totalSteps} · Goal</span>
+      <Col lg={10} xl={8}>
+        <Card className="border-0 shadow-sm" style={{ background: 'var(--color-card-background)', borderRadius: '1.25rem', minHeight: '650px' }}>
+          <Card.Body className="p-4 p-md-5">
+            <div className="d-flex justify-content-between align-items-center mb-4">
+              <div className="d-flex align-items-center gap-2" style={{ color: 'var(--color-text-tertiary)', fontSize: '0.9rem' }}>
+                <CgGym size="1.6rem" />
+                <span>Step {stepIndex + 1} of {totalSteps} · Goal</span>
+              </div>
+              <div className="d-flex gap-1">
+                {[...Array(totalSteps)].map((_, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      width: '8px', height: '8px', borderRadius: '50%',
+                      background: i <= stepIndex ? 'var(--color-primary)' : 'var(--color-border-default)'
+                    }}
+                  />
+                ))}
+              </div>
             </div>
-            <div className="quiz-step-dots">
-              <span className="quiz-dot quiz-dot-active" />
-              <span className="quiz-dot" />
-              <span className="quiz-dot" />
-              <span className="quiz-dot" />
-              <span className="quiz-dot" />
-            </div>
-          </div>
-          <h1 className="quiz-title">What is your primary training goal?</h1>
-          <p className="quiz-subtitle">
-            This helps shape your program structure, exercise selection, and progression.
-          </p>
-          <div className="d-flex flex-wrap gap-2 mt-3">
-            {goals.map((goal) => (
+
+            <h1 className="mb-2 fw-bold" style={{ color: 'var(--color-text-primary)' }}>What is your primary training goal?</h1>
+            <p className="mb-4" style={{ color: 'var(--color-text-secondary)', maxWidth: '600px' }}>
+              This helps shape your program structure, exercise selection, and progression.
+            </p>
+
+            <Row className="g-3">
+              {goals.map((goal) => (
+                <Col xs={12} md={6} key={goal}>
+                  <QuizOptionCard
+                    selected={selected === goal}
+                    onClick={() => handleSelect(goal)}
+                  >
+                    {goal}
+                  </QuizOptionCard>
+                </Col>
+              ))}
+            </Row>
+
+            <div className="d-flex justify-content-end mt-5">
               <button
-                key={goal}
                 type="button"
-                onClick={() => handleSelect(goal)}
-                className={
-                  'quiz-option btn' +
-                  (selected === goal ? ' quiz-option-active' : '')
-                }
+                className="btn btn-primary rounded-pill px-4 py-2 fw-bold"
+                disabled={!selected}
+                onClick={handleContinue}
+                style={{ background: 'var(--color-primary)', border: 'none' }}
               >
-                {goal}
+                Continue
               </button>
-            ))}
-          </div>
-          <div className="d-flex justify-content-end mt-4">
-            <button
-              type="button"
-              className="btn quiz-btn-next"
-              disabled={!selected}
-              onClick={handleContinue}
-            >
-              Continue
-            </button>
-          </div>
-        </div>
+            </div>
+          </Card.Body>
+        </Card>
       </Col>
     </Row>
   );
