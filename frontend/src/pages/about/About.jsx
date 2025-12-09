@@ -1,4 +1,4 @@
-import '../App.css';
+import '../../App.css';
 import { Container, Card, Row, Col } from 'react-bootstrap';
 
 function About() {

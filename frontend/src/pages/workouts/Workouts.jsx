@@ -1,12 +1,10 @@
 import { useState } from 'react';
-import '../App.css';
+import '../../App.css';
 import { Container, Card, Alert, ListGroup, Badge, Button, Row, Col, Table } from 'react-bootstrap';
-import { recommendedWorkouts } from '../data/mockData';
-import WorkoutCard from '../components/WorkoutCard';
+import { recommendedWorkouts } from '../../data/mockData';
+import WorkoutCard from '../../components/ui/cards/workout/WorkoutCard';
 
 function Workouts() {
-    const [selectedWorkout, setSelectedWorkout] = useState(null);
-
     const [savedWorkouts, setSavedWorkouts] = useState([]);
 
     useState(() => {

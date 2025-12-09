@@ -1,11 +1,11 @@
 import { HashRouter, Route, Routes } from "react-router";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import HomePage from "./pages/home"
-import Navbar from "./components/Navbar"
-import Workouts from "./pages/Workouts"
-import Profile from "./pages/Profile"
-import About from "./pages/About"
-import NoMatch from "./pages/NoMatch"
+import Navbar from "./components/navbar/Navbar"
+import Workouts from "./pages/workouts/Workouts"
+import Profile from "./pages/profile/Profile"
+import About from "./pages/about/About"
+import NoMatch from "./pages/failsafe/NoMatch"
 import "./App.css"
 import QuizHome from "./pages/quiz";
 

@@ -5,34 +5,11 @@ import { CgGym } from 'react-icons/cg';
 import { FaFire, FaUtensils, FaCheckCircle } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { recommendedWorkouts, foodPlans } from '../../data/mockData';
-import WorkoutCard from '../../components/WorkoutCard';
-import FoodPlanCard from '../../components/FoodPlanCard';
+import WorkoutCard from '../../components/ui/cards/workout/WorkoutCard';
+import FoodPlanCard from '../../components/ui/cards/food/FoodPlanCard';
+import { testimonials } from '../../data/mockData';
 function HomePage() {
   const navigate = useNavigate();
-
-  const testimonials = [
-    {
-      id: 1,
-      name: "Alex R.",
-      role: "Muscle Building",
-      quote: "The personalized plan actually adapted to my 3-day schedule. Finally seeing progress after months of stagnation.",
-      initial: "A",
-    },
-    {
-      id: 2,
-      name: "Sarah K.",
-      role: "Weight Loss",
-      quote: "I love that I don't have to guess what to eat. The macro breakdowns are spot on and easy to follow.",
-      initial: "S",
-    },
-    {
-      id: 3,
-      name: "Mike T.",
-      role: "Strength Training",
-      quote: "Simple, effective, and straight to the point. The dashboard tracks my PRs automatically.",
-      initial: "M",
-    }
-  ];
 
   function handleStartPlan() {
     navigate('/quiz');

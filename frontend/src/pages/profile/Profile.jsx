@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import '../App.css';
+import '../../App.css';
 import { Container, Card, Accordion, Form, Button, Badge, ListGroup } from 'react-bootstrap';
-import ProfileSettingSection from '../components/ProfileSettingSection';
+import ProfileSettingSection from '../../components/ProfileSettingSection';
 
 function Profile() {
     const [formData, setFormData] = useState({

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router";
 import { Button } from "react-bootstrap";
 import "./Navbar.css";
-import ThemeToggle from "./ThemeToggle";
+import ThemeToggle from "../theme/ThemeToggle";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { CgGym } from "react-icons/cg";
 

@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import '../App.css';
+import '../../App.css';
 import { Container, Card, Alert, Button } from 'react-bootstrap';
 
 function NoMatch() {
