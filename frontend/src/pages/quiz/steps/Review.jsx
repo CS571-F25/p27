@@ -27,6 +27,19 @@ function ReviewStep({ answers, stepIndex, totalSteps, onBack }) {
 
       const data = await res.json();
       setPlanText(data.plan || '');
+
+      // Save to LocalStorage
+      const newWorkout = {
+        id: Date.now(),
+        name: `AI Plan: ${answers.goal}`,
+        date: new Date().toISOString().split('T')[0],
+        duration: `${answers.sessionLength} min`,
+        exercises: answers.focusMuscles.length || 5, // Estimate
+        plan: data.plan
+      };
+
+      const existing = JSON.parse(localStorage.getItem('savedWorkouts') || '[]');
+      localStorage.setItem('savedWorkouts', JSON.stringify([newWorkout, ...existing]));
     } catch (e) {
       setError('Something went wrong while generating your plan. Please try again.');
     } finally {

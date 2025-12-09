@@ -10,6 +10,30 @@ import FoodPlanCard from '../../components/FoodPlanCard';
 function HomePage() {
   const navigate = useNavigate();
 
+  const testimonials = [
+    {
+      id: 1,
+      name: "Alex R.",
+      role: "Muscle Building",
+      quote: "The personalized plan actually adapted to my 3-day schedule. Finally seeing progress after months of stagnation.",
+      initial: "A",
+    },
+    {
+      id: 2,
+      name: "Sarah K.",
+      role: "Weight Loss",
+      quote: "I love that I don't have to guess what to eat. The macro breakdowns are spot on and easy to follow.",
+      initial: "S",
+    },
+    {
+      id: 3,
+      name: "Mike T.",
+      role: "Strength Training",
+      quote: "Simple, effective, and straight to the point. The dashboard tracks my PRs automatically.",
+      initial: "M",
+    }
+  ];
+
   function handleStartPlan() {
     navigate('/quiz');
   }
@@ -25,87 +49,35 @@ function HomePage() {
     <Container className="page-container">
       <section className="ai-home-hero-section">
         <Row className="align-items-center gy-4">
-          <Col lg={7}>
-            <div className="ai-home-hero-left">
-              <div className="ai-home-hero-label d-inline-flex align-items-center mb-3">
-                <CgGym size="1.8rem" className="me-2" />
-                <span>AI-guided training</span>
-              </div>
-              <h1 className="ai-home-title">
-                Build Your Training Plan In Minutes
-              </h1>
-              <p className="ai-home-subtitle">
-                Answer a short quiz, tap on the muscles you want to train, and get a
-                structured workout and nutrition plan tailored to your goals, schedule,
-                and equipment.
-              </p>
-              <div className="ai-home-pill-row d-flex flex-wrap gap-2 mt-3">
-                <span className="ai-home-pill">Goal-based programming</span>
-                <span className="ai-home-pill">Equipment-aware plans</span>
-                <span className="ai-home-pill">Clickable body map</span>
-              </div>
-              <div className="ai-home-cta-row d-flex flex-wrap gap-3 mt-4">
-                <button
-                  type="button"
-                  className="btn ai-home-btn-primary"
-                  onClick={handleStartPlan}
-                >
-                  Start Your Plan
-                </button>
-                <button
-                  type="button"
-                  className="btn ai-home-btn-secondary"
-                  onClick={handleHowItWorks}
-                >
-                  How It Works
-                </button>
-              </div>
+          <Col lg={10} className="mx-auto text-center">
+            <h1 className="ai-home-title">
+              Build Your Training Plan In Minutes
+            </h1>
+            <h2 className="ai-home-subtitle mx-auto">
+              Answer a short quiz, tap on the muscles you want to train, and get a
+              structured workout and nutrition plan tailored to your goals, schedule,
+              and equipment.
+            </h2>
+            <div className="flex-wrap gap-2 mt-4 justify-content-center d-flex">
+              <span className="ai-home-pill">Goal-based programming</span>
+              <span className="ai-home-pill">Equipment-aware plans</span>
+              <span className="ai-home-pill">Clickable body map</span>
             </div>
-          </Col>
-          <Col lg={5}>
-            <div className="ai-home-preview-card">
-              <div className="ai-home-step-dots">
-                <span className="ai-home-dot ai-home-dot-active" />
-                <span className="ai-home-dot" />
-                <span className="ai-home-dot" />
-                <span className="ai-home-dot" />
-                <span className="ai-home-dot" />
-                <span className="ai-home-step-text ms-2">
-                  Goal ▸ Experience ▸ Equipment ▸ Schedule ▸ Body
-                </span>
-              </div>
-              <h3 className="ai-home-preview-title">Preview: Quiz Step</h3>
-              <p className="ai-home-preview-text">
-                Tell the AI what you want from training to shape your plan.
-              </p>
-              <div className="d-flex flex-wrap gap-2 mt-3">
-                <button type="button" className="ai-home-mini-option ai-home-mini-option-active">
-                  Build Muscle
-                </button>
-                <button type="button" className="ai-home-mini-option">
-                  Lose Fat
-                </button>
-                <button type="button" className="ai-home-mini-option">
-                  Get Stronger
-                </button>
-                <button type="button" className="ai-home-mini-option">
-                  Improve Mobility
-                </button>
-              </div>
-              <ul className="ai-home-preview-list mt-3">
-                <li>
-                  <FaCheckCircle className="ai-home-preview-icon" />
-                  Adapts to your days per week
-                </li>
-                <li>
-                  <FaCheckCircle className="ai-home-preview-icon" />
-                  Uses only the equipment you have
-                </li>
-                <li>
-                  <FaCheckCircle className="ai-home-preview-icon" />
-                  Focuses on the muscles you select
-                </li>
-              </ul>
+            <div className="ai-home-cta-row d-flex flex-wrap gap-3 mt-4 justify-content-center">
+              <button
+                type="button"
+                className="btn ai-home-btn-primary"
+                onClick={handleStartPlan}
+              >
+                Start Your Plan
+              </button>
+              <button
+                type="button"
+                className="btn ai-home-btn-secondary"
+                onClick={handleHowItWorks}
+              >
+                How It Works
+              </button>
             </div>
           </Col>
         </Row>
@@ -162,7 +134,7 @@ function HomePage() {
         <Row className="g-4">
           {recommendedWorkouts.map((workout) => (
             <Col key={workout.id} xs={12} md={6} lg={4}>
-              <WorkoutCard workout={workout} isRecommended={true} />
+              <WorkoutCard workout={workout} />
             </Col>
           ))}
         </Row>
@@ -179,6 +151,31 @@ function HomePage() {
           {foodPlans.map((plan) => (
             <Col key={plan.id} xs={12} md={6} lg={4}>
               <FoodPlanCard plan={plan} />
+            </Col>
+          ))}
+        </Row>
+      </section>
+
+      <section className="ai-home-section">
+        <div className="section-header d-flex align-items-center justify-content-between">
+          <h2 className="section-title d-flex align-items-center">
+            <FaCheckCircle className="me-2 section-icon" />
+            What Users Say
+          </h2>
+        </div>
+        <Row className="g-4">
+          {testimonials.map((t) => (
+            <Col key={t.id} xs={12} md={4}>
+              <div className="ai-home-testimonial-card">
+                <p className="testimonial-quote">"{t.quote}"</p>
+                <div className="testimonial-author">
+                  <div className="testimonial-avatar">{t.initial}</div>
+                  <div className="testimonial-info">
+                    <h4>{t.name}</h4>
+                    <span>{t.role}</span>
+                  </div>
+                </div>
+              </div>
             </Col>
           ))}
         </Row>

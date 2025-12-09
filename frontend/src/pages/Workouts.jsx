@@ -7,7 +7,15 @@ import WorkoutCard from '../components/WorkoutCard';
 function Workouts() {
     const [selectedWorkout, setSelectedWorkout] = useState(null);
 
+    const [savedWorkouts, setSavedWorkouts] = useState([]);
+
+    useState(() => {
+        const saved = JSON.parse(localStorage.getItem('savedWorkouts') || '[]');
+        setSavedWorkouts(saved);
+    }, []);
+
     const recentWorkouts = [
+        ...savedWorkouts,
         { id: 1, name: 'Full Body Strength', date: '2024-01-15', duration: '45 min', exercises: 4 },
         { id: 2, name: 'Cardio Blast', date: '2024-01-14', duration: '30 min', exercises: 4 },
         { id: 3, name: 'Upper Body Focus', date: '2024-01-13', duration: '40 min', exercises: 4 },

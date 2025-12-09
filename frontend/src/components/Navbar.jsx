@@ -22,14 +22,12 @@ function Navbar() {
 
     return (
         <>
-            {/* Mobile Menu Overlay */}
             {isOpen && <div className="navbar-overlay" onClick={closeMenu} />}
-            
-            {/* Hamburger Button (Mobile Only) */}
-            <Button 
-                variant="outline-secondary" 
-                className="navbar-toggle" 
-                onClick={toggleMenu} 
+
+            <Button
+                variant="outline-secondary"
+                className="navbar-toggle"
+                onClick={toggleMenu}
                 aria-label="Toggle menu"
             >
                 {isOpen ? <FaTimes /> : <FaBars />}
@@ -38,23 +36,22 @@ function Navbar() {
             <nav className={`navbar ${isOpen ? 'navbar-open' : ''}`}>
                 <div className="navbar-brand">
                     <Link to="/" onClick={closeMenu} className="navbar-logo-link">
-                        <CgGym size="2.5em" className="navbar-logo" />
-                        <span className="navbar-brand-text">Training</span>
+                        <CgGym size="3em" className="navbar-logo" />
                     </Link>
                 </div>
                 <ul className="navbar-nav">
                     <li>
-                        <Link 
-                            to="/" 
-                            onClick={closeMenu} 
+                        <Link
+                            to="/"
+                            onClick={closeMenu}
                             className={currentPath === '/' || currentPath === '' ? 'active' : ''}
                         >
                             Home
                         </Link>
                     </li>
                     <li>
-                        <Link 
-                            to="/workouts" 
+                        <Link
+                            to="/workouts"
                             onClick={closeMenu}
                             className={currentPath === '/workouts' ? 'active' : ''}
                         >
@@ -62,8 +59,8 @@ function Navbar() {
                         </Link>
                     </li>
                     <li>
-                        <Link 
-                            to="/profile" 
+                        <Link
+                            to="/profile"
                             onClick={closeMenu}
                             className={currentPath === '/profile' ? 'active' : ''}
                         >
@@ -71,8 +68,8 @@ function Navbar() {
                         </Link>
                     </li>
                     <li>
-                        <Link 
-                            to="/about" 
+                        <Link
+                            to="/about"
                             onClick={closeMenu}
                             className={currentPath === '/about' ? 'active' : ''}
                         >

@@ -1,12 +1,12 @@
 import { Card, Button, Badge } from 'react-bootstrap';
 import { FaClock, FaFire } from 'react-icons/fa';
 
-function WorkoutCard({ workout, isRecommended = false }) {
+function WorkoutCard({ workout }) {
   return (
-    <Card className={`workout-card ${isRecommended ? 'recommended' : ''} h-100`}>
+    <Card className={`workout-card ${workout.isRecommended ? 'recommended' : ''} h-100`}>
       <Card.Header className="workout-card-header d-flex justify-content-between align-items-center">
         <Card.Title as="h4" className="mb-0">{workout.name}</Card.Title>
-        {isRecommended && <Badge bg="danger">Recommended</Badge>}
+        {workout.isRecommended && <Badge bg="danger">Recommended</Badge>}
       </Card.Header>
       <Card.Body className="workout-card-body">
         <div className="workout-info mb-2">

@@ -6,6 +6,7 @@ export const recommendedWorkouts = [
     difficulty: 'Intermediate',
     exercises: ['Squats', 'Push-ups', 'Deadlifts', 'Pull-ups'],
     calories: 350,
+    isRecommended: true
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export const recommendedWorkouts = [
     difficulty: 'Beginner',
     exercises: ['Running', 'Jumping Jacks', 'Burpees', 'Mountain Climbers'],
     calories: 280,
+    isRecommended: false
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ export const recommendedWorkouts = [
     difficulty: 'Advanced',
     exercises: ['Bench Press', 'Rows', 'Shoulder Press', 'Bicep Curls'],
     calories: 320,
+    isRecommended: false
   },
 ];
 
