@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router';
 import '../../App.css';
 import { Container, Alert, ListGroup, Badge, Button, Row, Col, Table } from 'react-bootstrap';
 import { recommendedWorkouts } from '../../data/mockData';
@@ -10,10 +11,18 @@ function Workouts() {
     const [savedWorkouts, setSavedWorkouts] = useState([]);
     const [activeWorkout, setActiveWorkout] = useState(null);
 
-    useState(() => {
+    const location = useLocation();
+
+    useEffect(() => {
         const saved = JSON.parse(localStorage.getItem('savedWorkouts') || '[]');
         setSavedWorkouts(saved);
-    }, []);
+
+        if (location.state?.activeWorkout) {
+            setActiveWorkout(location.state.activeWorkout);
+            // Clear state so we don't re-open on refresh (optional but good practice)
+            window.history.replaceState({}, document.title);
+        }
+    }, [location.state]);
 
     const recentWorkouts = [
         ...savedWorkouts,

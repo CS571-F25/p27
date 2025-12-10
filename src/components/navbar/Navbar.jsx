@@ -60,11 +60,11 @@ function Navbar() {
                     </li>
                     <li>
                         <Link
-                            to="/profile"
+                            to="/quiz"
                             onClick={closeMenu}
-                            className={currentPath === '/profile' ? 'active' : ''}
+                            className={currentPath === '/quiz' ? 'active' : ''}
                         >
-                            Profile
+                            Quiz
                         </Link>
                     </li>
                     <li>
