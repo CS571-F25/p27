@@ -19,16 +19,21 @@ function Workouts() {
 
         if (location.state?.activeWorkout) {
             setActiveWorkout(location.state.activeWorkout);
-            // Clear state so we don't re-open on refresh (optional but good practice)
             window.history.replaceState({}, document.title);
         }
     }, [location.state]);
 
     const recentWorkouts = [
         ...savedWorkouts,
-        { id: 1, name: 'Full Body Strength', date: '2024-01-15', duration: '45 min', exercises: 4 },
-        { id: 2, name: 'Cardio Blast', date: '2024-01-14', duration: '30 min', exercises: 4 },
-        { id: 3, name: 'Upper Body Focus', date: '2024-01-13', duration: '40 min', exercises: 4 },
+        {
+            id: 1, name: 'Full Body Strength', date: '2024-01-15', duration: '45 min', exercises: ['Squats', 'Push-ups', 'Deadlifts', 'Pull-ups'],
+        },
+        {
+            id: 2, name: 'Cardio Blast', date: '2024-01-14', duration: '30 min', exercises: ['Running', 'Jumping Jacks', 'Burpees', 'Mountain Climbers'],
+        },
+        {
+            id: 3, name: 'Upper Body Focus', date: '2024-01-13', duration: '40 min', exercises: ['Bench Press', 'Rows', 'Shoulder Press', 'Bicep Curls'],
+        },
     ];
 
     const handleStartWorkout = (workout) => {
