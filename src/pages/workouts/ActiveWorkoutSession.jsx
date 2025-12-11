@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Modal, Button, Badge, Form, Dropdown } from 'react-bootstrap';
-import { FaPlay, FaPause, FaStop, FaCheckCircle, FaInfoCircle } from 'react-icons/fa';
+import { FaPlay, FaPause, FaStop, FaCheckCircle, FaInfoCircle, FaTimes } from 'react-icons/fa';
 import { MdRadioButtonUnchecked } from 'react-icons/md';
 const parsePlan = (planText) => {
     if (!planText) return null;
@@ -139,7 +139,15 @@ function ActiveWorkoutSession({ workout, onClose }) {
                             </div>
                             <Modal.Title style={{ color: 'var(--color-text-primary)' }}>{workout?.name || 'Workout'}</Modal.Title>
                         </div>
-                        <Button variant="close" onClick={onClose} aria-label="Close" />
+                        <Button
+                            variant="link"
+                            className="p-0"
+                            onClick={onClose}
+                            aria-label="Close"
+                            style={{ color: 'var(--color-text-secondary)', fontSize: '1.1rem' }}
+                        >
+                            <FaTimes />
+                        </Button>
                     </div>
                 </Modal.Header>
                 <Modal.Body style={{ background: 'var(--color-background)', color: 'var(--color-text-primary)', overflow: 'hidden' }}>
@@ -199,7 +207,7 @@ function ActiveWorkoutSession({ workout, onClose }) {
                                 ) : (
                                     <h5 className="mb-0" style={{ color: 'var(--color-text-secondary)' }}>Session Plan</h5>
                                 )}
-                                <span className="small text-muted">{completedItems.size} completed</span>
+                                <span style={{ color: 'var(--color-text-secondary)'}}>{completedItems.size} completed</span>
                             </div>
 
                             <div className="p-4 rounded-4 flex-grow-1 custom-scrollbar" style={{ background: 'var(--color-background-tertiary)', overflowY: 'auto' }}>
